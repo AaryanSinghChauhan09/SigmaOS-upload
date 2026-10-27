@@ -1,15 +1,42 @@
-# SigmaOS-upload
+    # SigmaOS-upload
 
-Part of the SigmaOS multi-repository architecture.
+    File upload / share service client
 
-## Principles
-- MODULARITY: Single responsibility per repository
-- LOOSE COUPLING: Minimal dependencies between repos
-- INTERFACE SEGREGATION: Clear, focused public APIs
-- DETERMINISTIC TESTING: Comprehensive test coverage
+    Part of the **SigmaOS** sovereign operating-system ecosystem — a multi-repository
+    distribution modelled on Linux Mint and Omarchy Linux. See the parent
+    [`SigmaOS`](https://github.com/AaryanSinghChauhan09/SigmaOS) repository for the
+    full component index.
 
-## License
-SPDX-License-Identifier: GPL-3.0-or-later
+    ## Upstream inspirations
+    - https://github.com/linuxmint/mintupload
 
-## Copyright
-Copyright (C) 2026 SigmaOS Project
+    ## Design principles applied
+    - **Defensive Programming**
+- **Fail-Fast**
+- **Separation of Concerns**
+- **KISS**
+- **Deterministic Testing**
+
+    ## Usage
+    Verbs: `upload-plan, targets, size-limit, history`
+
+    ```
+    $ sigma-upload targets
+transfer  PUT   https://transfer.sh/{name}   max=5120M
+$ sigma-upload size-limit 10M
+10000000 bytes
+$ sigma-upload upload-plan report.pdf --target transfer --limit 50M
+curl --upload-file report.pdf https://transfer.sh/report.pdf
+$ sigma-upload history --store history.jsonl
+report.pdf -> transfer (71234 bytes) ok
+
+    ```
+
+    ## Build & test
+    ```
+    make build
+    make test
+    ```
+
+    ## Licence
+    GNU General Public License v3.0 (FOSS).
