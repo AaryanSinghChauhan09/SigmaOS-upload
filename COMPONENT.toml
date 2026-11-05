@@ -1,0 +1,6 @@
+[component]
+name = "SigmaOS-upload"
+tier = 4
+description = "File upload manager, SFTP, and pastebin sharing client inspired by Mintupload"
+contracts = ['file-uploader', 'sftp-client-shim', 'clipboard-link-sharer']
+upstream_inspirations = ['https://github.com/linuxmint/mintupload']
